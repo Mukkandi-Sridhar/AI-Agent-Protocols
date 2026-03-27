@@ -1,51 +1,109 @@
-## Common AI Agent Protocols
+### 4. Agent2Agent Protocol (A2A)
 
-Several protocols are currently being developed to support communication between AI agents.
+The A2A protocol is an open standard for agent communication originally launched by Google and now managed by the Linux Foundation.
 
-### 1. Agent Communication Protocol (ACP)
+It uses a client-server architecture.
 
-ACP is an open standard for agent-to-agent communication.
+The workflow includes three stages:
 
-Originally introduced by IBM's BeeAI project, ACP allows agents built using different frameworks and technologies to communicate and collaborate.
+1. Discovery
 
-Key benefits:
+A user or agent sends a request to a client agent.  
+The client agent identifies remote agents capable of completing the task.
 
-- interoperability between agents
-- easier integration across platforms
-- reusable agent components
-- scalable agent ecosystems
+2. Authentication
 
-ACP builds on top of earlier standards such as the Model Context Protocol (MCP).
+The selected remote agent verifies authorization and grants permissions.
 
----
+3. Communication
 
-### 2. Agent Network Protocol (ANP)
+The client agent sends the task request and the remote agent processes it.
 
-The Agent Network Protocol is an open-source communication framework designed specifically for intelligent agents.
-
-ANP works similarly to HTTP but is optimized for environments where agents are the primary entities operating on the internet.
-
-ANP allows agents to:
-
-- discover other agents
-- establish connections
-- exchange messages securely
-- collaborate across networks
-
-The goal is to create a standardized infrastructure for the future AI-driven internet.
+Communication occurs over HTTPS with JSON-RPC 2.0 for structured data exchange.
 
 ---
 
-### 3. Agent-User Interaction Protocol (AG-UI)
+### 5. Model Context Protocol (MCP)
 
-AG-UI is a lightweight protocol designed to standardize communication between AI agents and user-facing applications.
+The Model Context Protocol, introduced by Anthropic, provides a standardized way for AI models to access external context.
 
-It focuses on event-based communication and structured interactions.
+MCP enables agents to connect with:
 
-This protocol enables:
+- APIs
+- databases
+- files
+- search tools
+- external services
 
-- exchange of agent state
-- user interface intents
-- structured user interactions
+The MCP architecture includes three components.
 
-AG-UI allows developers to build reliable agent interfaces without complex custom integrations.
+MCP Host  
+Contains orchestration logic and connects clients to servers.
+
+MCP Client  
+Converts user requests into structured protocol messages and manages sessions.
+
+MCP Server  
+Provides tools and services such as APIs or databases.
+
+Communication between clients and servers occurs through JSON-RPC using either:
+
+- standard input/output (stdio)
+- HTTP transport
+
+---
+
+### 6. Agent Payments Protocol (AP2)
+
+The Agent Payments Protocol enables AI agents to perform secure financial transactions on behalf of users.
+
+Introduced by Google in 2025, AP2 enables cross-platform agent-driven payments.
+
+Instead of users manually clicking purchase buttons, agents can execute transactions automatically.
+
+AP2 uses digitally signed instructions called **mandates**.
+
+Two types of mandates exist.
+
+Intent Mandate  
+Captures the user's request and intent.
+
+Cart Mandate  
+Finalizes the transaction with a secure record of items, price, and terms.
+
+This ensures transparency and security during agent-driven purchases.
+
+---
+
+## Example Workflow Using A2A, MCP, and AP2
+
+Consider the request:
+
+"Order noise-cancelling wireless headphones under $250."
+
+Step 1 — A2A communication  
+The shopping agent communicates with retailer and payment agents.
+
+Step 2 — MCP context retrieval  
+The agent gathers product data, user preferences, and past purchase history.
+
+Step 3 — AP2 payment execution  
+The agent generates a Cart Mandate and completes the transaction securely.
+
+---
+
+## Criteria for Choosing an Agent Protocol
+
+Organizations evaluating agent protocols typically consider:
+
+Efficiency  
+Protocols should minimize latency and enable fast responses.
+
+Reliability  
+Protocols must handle network disruptions and support long-running tasks.
+
+Scalability  
+Protocols should support large ecosystems with many agents and services.
+
+Security  
+Strong authentication, encryption, and access control are essential.
