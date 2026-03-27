@@ -1,33 +1,51 @@
-# Agentic AI Protocols
+## Common AI Agent Protocols
 
-## What are AI Agent Protocols?
+Several protocols are currently being developed to support communication between AI agents.
 
-AI agent protocols establish standards of communication among artificial intelligence agents and between AI agents and external systems. They define the syntax, structure, and sequence of messages used for interaction.
+### 1. Agent Communication Protocol (ACP)
 
-These protocols also define communication conventions such as:
-- Roles agents take in conversations
-- How messages are exchanged
-- When and how agents respond
+ACP is an open standard for agent-to-agent communication.
 
-## Why Agent Protocols Are Needed
+Originally introduced by IBM's BeeAI project, ACP allows agents built using different frameworks and technologies to communicate and collaborate.
 
-Agent-based AI systems are often built using different frameworks and architectures. Because of this, many AI agents operate in isolated systems (silos).
+Key benefits:
 
-This fragmentation makes real-world integration difficult. Connecting different agent systems often requires custom connectors for every possible interaction.
+- interoperability between agents
+- easier integration across platforms
+- reusable agent components
+- scalable agent ecosystems
 
-Agent protocols solve this problem by standardizing how agents communicate.
+ACP builds on top of earlier standards such as the Model Context Protocol (MCP).
 
-They allow:
-- discovery of other agents
-- understanding of requests
-- collaboration across systems
+---
 
-## Role in Multi-Agent Systems
+### 2. Agent Network Protocol (ANP)
 
-Protocols are a component of agent orchestration but they are not orchestrators themselves.
+The Agent Network Protocol is an open-source communication framework designed specifically for intelligent agents.
 
-They standardize communication but do not manage:
+ANP works similarly to HTTP but is optimized for environments where agents are the primary entities operating on the internet.
 
-- workflow coordination
-- task execution
-- system optimization
+ANP allows agents to:
+
+- discover other agents
+- establish connections
+- exchange messages securely
+- collaborate across networks
+
+The goal is to create a standardized infrastructure for the future AI-driven internet.
+
+---
+
+### 3. Agent-User Interaction Protocol (AG-UI)
+
+AG-UI is a lightweight protocol designed to standardize communication between AI agents and user-facing applications.
+
+It focuses on event-based communication and structured interactions.
+
+This protocol enables:
+
+- exchange of agent state
+- user interface intents
+- structured user interactions
+
+AG-UI allows developers to build reliable agent interfaces without complex custom integrations.
